@@ -19,11 +19,11 @@ use App\Http\Controllers\Rider\LocationController as RiderLocationController;
 
 
 Route::middleware(['auth', 'user'])->prefix('user/')->name('user.')->group(function () {
-    Route::resource('/', LocationController::class);
+    Route::resource('/location', LocationController::class);
 });
 
 Route::middleware(['auth', 'rider'])->prefix('rider/')->name('rider.')->group(function () {
-    Route::resource('/', RiderLocationController::class);
+    Route::resource('/location', RiderLocationController::class);
 });
 
 require __DIR__ . '/auth.php';

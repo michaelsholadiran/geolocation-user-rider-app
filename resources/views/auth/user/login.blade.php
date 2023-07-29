@@ -15,10 +15,10 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                     </div>
-                                    <form  action="{{route('user.login')}}"  class="user">
+                                    <form method="post" action="{{route('login')}}"  class="user">
                                     @csrf
                                         <div class="form-group">
-                                            <input type="email" wire:model="email" class="form-control form-control-user"
+                                            <input type="email" name="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                                  @error('email')
@@ -26,7 +26,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input wire:model="password" type="password" class="form-control form-control-user"
+                                            <input name="password" type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                                  @error('password')
                                             <span>{{$message}}</span>
