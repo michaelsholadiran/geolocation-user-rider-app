@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\LocationController;
+use App\Http\Controllers\Rider\LocationController as RiderLocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+
+Route::middleware(['auth', 'user'])->prefix('user/')->name('user.')->group(function () {
+    Route::resource('/', LocationController::class);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth', 'rider'])->prefix('rider/')->name('rider.')->group(function () {
+    Route::resource('/', RiderLocationController::class);
+});
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
