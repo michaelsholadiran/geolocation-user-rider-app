@@ -1,8 +1,8 @@
-<div class="container-fluid">
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">User</h1>
-    <a href="{{route('admin.user.create')}}" class="btn btn-secondary"> Create New</a>
-  </div>
+@extends('layouts.rider.master')
+@section('title','Location')
+@section('content')
+  <div class="container-fluid">
+
 
   <div>
     <table class="table table-striped">
@@ -22,7 +22,7 @@
           <th scope="row">{{$l->name}}</th>
           <th scope="row">{{$l->email}}</th>
           <th scope="row">
-            <a href="{{route('admin.user.edit',['id'=>$l->id])}}" class="btn btn-outline-secondary ">Edit</a>
+            <a href="" class="btn btn-outline-secondary ">Edit</a>
 
             <a class="btn btn-outline-danger " wire:click="$emit('destroy',{{$l->id}})">Delete</a>
           </th>
@@ -34,3 +34,4 @@
   </div>
 
 </div>
+@endsection

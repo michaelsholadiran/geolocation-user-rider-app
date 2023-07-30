@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Rider;
 
-use App\Http\Controllers\Controller;
+use App\Models\Location;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LocationController extends Controller
 {
@@ -14,7 +15,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $list = Location::all();
+        return view('rider.location.index', compact('list'));
     }
 
     /**
