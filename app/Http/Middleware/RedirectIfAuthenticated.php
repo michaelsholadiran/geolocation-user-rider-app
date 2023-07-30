@@ -22,7 +22,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                if (auth()->user()->account_type == 'user') {
+                    return redirect(route('user.location.create'));
+                } else {
+                    return redirect(route('rider.location.create'));
+                }
             }
         }
 

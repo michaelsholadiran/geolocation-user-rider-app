@@ -50,6 +50,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('user.location'));
+        return redirect(route('user.location.create'));
     }
 }

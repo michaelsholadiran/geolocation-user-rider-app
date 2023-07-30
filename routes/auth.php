@@ -12,7 +12,7 @@ use App\Http\Controllers\Auth\User\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\Rider\RegisteredUserController as RiderRegisteredUserController;
 use App\Http\Controllers\Auth\Rider\AuthenticatedSessionController as RiderAuthenticatedSessionController;
 
-Route::middleware('guest')->group(function () {
+Route::middleware('guest')->prefix('user/')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 
