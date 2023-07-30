@@ -32,9 +32,9 @@ class LocationController extends Controller
         // dd($geo);
         // $country = $geo["geoplugin_countryName"];
         // $city = $geo["geoplugin_city"];
-        $location = Location::where('user_id', auth()->user()->id)->firstOrFail();
+        // $location = Location::where('user_id', auth()->user()->id)->firstOrFail();
 
-        return view('user.location.create', compact('location'));
+        return view('user.location.create');
     }
 
     /**

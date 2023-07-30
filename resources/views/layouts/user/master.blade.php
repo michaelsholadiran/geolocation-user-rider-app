@@ -88,10 +88,10 @@ const options = {
         const lat = pos.coords.latitude;
         const lng = pos.coords.longitude;
 
-          codeLatLng(lat, lng) 
+        
         const accuracy = pos.coords.accuracy; // Accuracy in metres
         document.getElementById('latlng').value = `[${lat},${lng}]`
-
+  codeLatLng(lat, lng) 
         //codeLatLng(lat, lng) 
         // document.getElementById('output').innerText = `
         //     User coordinates: 
@@ -138,6 +138,7 @@ const poss = {
   var lng = e.latLng.lng();
   
    codeLatLng(lat, lng) 
+     document.getElementById('latlng').value = `[${lat},${lng}]`
 });
 
     }
