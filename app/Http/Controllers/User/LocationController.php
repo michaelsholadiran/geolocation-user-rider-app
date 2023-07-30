@@ -46,6 +46,7 @@ class LocationController extends Controller
     {
         $request->validate([
             'latlng' => ['required'],
+            'address' => ['required'],
 
         ]);
 
@@ -55,7 +56,8 @@ class LocationController extends Controller
         // $location->save();
 
         Location::updateOrCreate(['user_id' => auth()->user()->id], [
-            'data' => $request->latlng
+            'data' => $request->latlng,
+            'address' => $request->address
         ]);
 
         return back()->with('message', 'success');

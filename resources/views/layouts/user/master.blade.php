@@ -81,11 +81,14 @@ const options = {
         maximumAge: 2000,
         // Milliseconds for which it is acceptable to use cached position (default 0)
     };
-    navigator.geolocation.watchPosition(success, error, options);
+   // navigator.geolocation.watchPosition(success, error, options);
+    navigator.geolocation.getCurrentPosition(success, error, options);
     // Fires success function immediately and when user position changes
     function success(pos) {
         const lat = pos.coords.latitude;
         const lng = pos.coords.longitude;
+
+          codeLatLng(lat, lng) 
         const accuracy = pos.coords.accuracy; // Accuracy in metres
         document.getElementById('latlng').value = `[${lat},${lng}]`
 
@@ -115,7 +118,7 @@ const poss = {
             title: "My location"
         });
 
-         codeLatLng(lat, lng) 
+       
 
             
     }
@@ -139,7 +142,8 @@ const poss = {
 
     }
 //window.initMap = initMap;
-   var city, country;
+   //var city, country,address;
+   var address;
     function codeLatLng(lat, lng) {
   
          var geocoder = new google.maps.Geocoder();
@@ -149,9 +153,11 @@ const poss = {
             'latLng': latlng
         }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-           //     console.log(results)
-                
-                if (results[1]) {
+              //console.log(results)
+               
+                if (results[0]) {
+                     address =results[0].formatted_address;
+                 /**   //   console.log(results[0].formatted_address)
                     //formatted address
                  //   alert(results[0].formatted_address)
                     //find country name
@@ -161,6 +167,7 @@ const poss = {
                             //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
                             if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
                                 //this is the object you are looking for
+                             
                                 city = results[0].address_components[i];
                                 break;
                             }
@@ -175,10 +182,11 @@ const poss = {
                     //city data
                     //console.log(country)
                    // console.log(city.short_name + " " + city.long_name)
-                     document.getElementById('name').value = city.long_name + ", " + country.long_name
+                   
 
  
-
+**/
+  document.getElementById('name').value =address
                 } else {
                     alert("No results found");
                 }

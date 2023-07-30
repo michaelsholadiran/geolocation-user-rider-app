@@ -9,23 +9,18 @@
       <thead>
         <tr>
 
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Action</th>
-
+          <th scope="col">User</th>
+          <th scope="col">Address</th>
+         
         </tr>
       </thead>
       <tbody>
 
         @foreach ($list as $l)
         <tr>
-          <th scope="row">{{$l->name}}</th>
-          <th scope="row">{{$l->email}}</th>
-          <th scope="row">
-            <a href="" class="btn btn-outline-secondary ">Edit</a>
-
-            <a class="btn btn-outline-danger " wire:click="$emit('destroy',{{$l->id}})">Delete</a>
-          </th>
+          <th scope="row">{{$l->user->name}}</th>
+          <th scope="row">{{$l->address}}</th>
+         
 
         </tr>
         @endforeach

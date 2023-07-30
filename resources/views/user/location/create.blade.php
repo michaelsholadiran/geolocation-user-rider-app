@@ -15,8 +15,8 @@
                 <div class="form-group row">
 
                     <div class="col-sm-6 col-5 mb-3 mb-sm-0">
-                        <input readonly="readonly" id="name" name="name" type="text" class="form-control form-control-user " id="exampleFirstName"
-                            placeholder="Name">
+                        <input readonly="readonly" id="name" name="address" type="text" class="form-control form-control-user " id="exampleFirstName"
+                            placeholder="Address">
                         @error('name')
                         <span>{{$message}}</span>
                         @enderror

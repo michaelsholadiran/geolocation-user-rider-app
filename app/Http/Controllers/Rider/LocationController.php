@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Rider;
 use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class LocationController extends Controller
 {
@@ -16,6 +17,10 @@ class LocationController extends Controller
     public function index()
     {
         $list = Location::all();
+        // "[6.537216,3.3521664]"
+        // $geolocation = 6.537216 . ',' . 3.3521664;
+        // $res = Http::get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCDv4AewhqtQJzy1Dy7CbDpTH8dA_6mzEU&latlng=' . $geolocation . '&sensor=false')->json();
+        // dd($res);
         return view('rider.location.index', compact('list'));
     }
 

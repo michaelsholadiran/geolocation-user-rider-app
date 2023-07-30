@@ -11,8 +11,15 @@ class Location extends Model
     protected $fillable = [
         'user_id',
         'data',
+        'address',
     ];
     protected $casts = [
         'data' => 'array',
     ];
+
+    function user()
+    {
+
+        return $this->belongsTo(User::class);
+    }
 }
