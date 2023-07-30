@@ -23,7 +23,7 @@ class LocationController extends Controller
         // dd($res);
 
 
-        $ref = array(49.648881, -103.575312);
+        $ref = array(6.537216, 3.3521664);
 
         $items = $list->toArray();
         // dd($items);
