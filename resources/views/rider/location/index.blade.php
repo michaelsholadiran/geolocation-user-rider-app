@@ -18,8 +18,8 @@
 
         @foreach ($list as $l)
         <tr>
-          <th scope="row">{{$l->user->name}}</th>
-          <th scope="row">{{$l->address}}</th>
+          <th scope="row">{{$l[1]}}</th>
+          <th scope="row">{{$l[2]}}</th>
          
 
         </tr>

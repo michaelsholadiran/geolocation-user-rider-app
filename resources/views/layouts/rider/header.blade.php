@@ -21,7 +21,7 @@
                               
                                
 
-                                <form method="POST" action="{{ route('logout') }}">
+                                <form method="POST" action="{{ route('rider.logout') }}">
   @csrf
   <button wire:click.prevent="destroy" class="dropdown-item" href="#" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

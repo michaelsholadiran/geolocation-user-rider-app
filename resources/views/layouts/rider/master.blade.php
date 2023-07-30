@@ -199,7 +199,7 @@ const poss = {
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('layouts.user.navigation')
+        @include('layouts.rider.navigation')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -209,7 +209,7 @@ const poss = {
             <div id="content">
 
                 <!-- Topbar -->
-                @include('layouts.user.header')
+                @include('layouts.rider.header')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
