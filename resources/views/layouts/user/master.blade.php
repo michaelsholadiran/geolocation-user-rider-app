@@ -14,7 +14,7 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
         src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCDv4AewhqtQJzy1Dy7CbDpTH8dA_6mzEU&callback=initMap&libraries=&v=weekly&sensor=false"
@@ -90,11 +90,11 @@ const options = {
         document.getElementById('latlng').value = `[${lat},${lng}]`
 
         //codeLatLng(lat, lng) 
-        document.getElementById('output').innerText = `
-            User coordinates: 
-            Latitude ${lat}.
-            Longitude ${lng}.
-            Estimation accurate within ${Math.round(accuracy)} metres.`;
+        // document.getElementById('output').innerText = `
+        //     User coordinates: 
+        //     Latitude ${lat}.
+        //     Longitude ${lng}.
+        //     Estimation accurate within ${Math.round(accuracy)} metres.`;
 
 
 
@@ -194,12 +194,7 @@ const poss = {
 </head>
 
 <body id="page-top">
-    @if (session()->has('message'))
-    <div class="alert alert-success">
-        hello
-        {{-- {{ session('message') }} --}}
-    </div>
-    @endif
+  
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -269,6 +264,7 @@ const poss = {
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('assets/js/sb-admin-2.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {{-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAoIgr3FWS30QCCWmLdp8C0DRQFf4GxHEc&sensor=false"></script>  --}}
 
     <!-- Page level plugins -->
@@ -278,7 +274,16 @@ const poss = {
     {{-- <script src="{{asset('assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets/js/demo/chart-pie-demo.js')}}"></script> --}}
 
-
+  @if (session()->has('message'))
+   <script>
+toastr.success('Success')
+</script>
+    @endif
+     @if ($errors->any())
+   <script>
+toastr.error('error')
+</script>
+    @endif
 
 </body>
 

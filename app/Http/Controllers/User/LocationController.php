@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
@@ -43,7 +44,21 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'latlng' => ['required'],
+
+        ]);
+
+        // $location = new Location;
+        // $location->user_id = auth()->user()->id;
+        // $location->data = $request->latlng;
+        // $location->save();
+
+        Location::updateOrCreate(['user_id' => auth()->user()->id], [
+            'data' => $request->latlng
+        ]);
+
+        return back()->with('message', 'success');
     }
 
     /**
